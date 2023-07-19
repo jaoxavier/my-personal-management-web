@@ -1,23 +1,42 @@
 .container{
     border: 1px solid black;
+
+    .title{
+        margin-top: 18px;
+    }
 }
 
 .row{
     display: flex;
     justify-content: space-around;
     flex-direction: row;
+
+    .itens{
+        margin: 12px;
+        width: 90px;
+        height: 90px;
+    }
 }
 
 .itens{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: fit-content;
-    justify-content: space-between;
+    justify-content: space-around;
     border: 1px solid black;
     gap: 4px;
+    cursor: pointer;
 
     p {
         margin: 0;
+        font-weight: bold;
     }
+
+    mat-icon{
+        transform: scale(1.5);
+    }
+}
+
+.itens:hover{
+    border: 2px solid #ccc;
 }

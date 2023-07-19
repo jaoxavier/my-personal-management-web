@@ -16,4 +16,9 @@ export const HubItens: Itens[] = [
         icon: 'restaurant',
         alt: 'a fork and a knife'
     },
+    {
+        name: 'Projects',
+        icon: 'folder_open',
+        alt: 'a open folder'
+    }
 ]
