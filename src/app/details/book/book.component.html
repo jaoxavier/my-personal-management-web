@@ -1,1 +1,81 @@
-<p>book works!</p>
+<div class="container">
+
+    <h1 class="title">Reading Tracking</h1>
+
+    <header class="header-book d-flex align-items-center">
+        <div class="dropdown flex-grow-1 d-flex justify-content-between align-items-center">
+            <button class="choose-book 
+            dropdown-toggle 
+            flex-grow-1 d-flex justify-content-between 
+            text-start align-items-center
+            btn btn-sm btn-outline-dark" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <span class="text-center">
+                    Choose a book
+                </span>
+                <span class="dropwdown-toggle"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li *ngFor="let book of book"><a class="dropdown-item"
+                        (click)="getSelectedBook(book.id)">{{book.name}}</a></li>
+            </ul>
+        </div>
+
+        <div class="add-book" (click)="openCreateBookDialog()">
+            <mat-icon>
+                add
+            </mat-icon>
+        </div>
+    </header>
+
+    <main *ngIf="selectedBook">
+        <div class="name mt-3">
+            <h2>
+                {{selectedBook.name}}
+            </h2>
+        </div>
+        <div class="d-flex justify-content-center align-items-center flex-column">
+            <div class="pages">
+                <h4>You have read {{selectedBook.read}} pages of {{selectedBook.pages}}</h4>
+            </div>
+            <div class="slider">
+                <mat-slider
+                class="example-margin"
+                [max]="selectedBook.pages"
+                [min]="0"
+                [step]="1"
+                [discrete]="true">
+              <input matSliderThumb [(ngModel)]="selectedBook.read" #slider>
+            </mat-slider>
+            </div>
+        </div>
+
+        <div class="time mt-3">
+            <div class="start">
+                <h4>Started at: {{selectedBook.start_reading | date:'dd/MM/yyyy'}}</h4>
+            </div>
+            <div class="end d-flex align-items-center justify-content-center gap-2" *ngIf="!selectedBook.finished">
+                <input type="checkbox" id="finish" (click)="finish()">
+                <h4 class="mb-0" for="finish">Finish</h4>
+            </div>
+            <div class="finished d-flex align-items-center justify-content-center gap-2" *ngIf="selectedBook.finished">
+                <h4 class="mb-0" for="finish">Finished at: {{selectedBook.end_reading | date: 'dd/MM/yyyy'}}</h4>
+            </div>
+        </div>
+
+        <div class="statistics mt-3" *ngIf="selectedBook.finished">
+            <div class="difficulty-view">
+                <h4>Difficulty: {{selectedBook.difficulty}}</h4>
+            </div>
+            <div class="opinion-view">
+                <h4>Rating: {{selectedBook.opinion}}</h4>
+            </div>
+        </div>
+        
+        <div class="observation mt-3">
+            <div class="obs">
+                <h4>Obs: {{selectedBook.observation}}</h4>
+            </div>
+        </div>
+
+    </main>
+</div>

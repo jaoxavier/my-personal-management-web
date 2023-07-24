@@ -2,6 +2,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { MatIconModule } from '@angular/material/icon';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
+import { HttpClientModule } from '@angular/common/http';
+import { MatSliderModule } from '@angular/material/slider';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +17,8 @@ import { DetailsComponent } from './details/details.component';
 import { DefaultComponent } from './details/default/default.component';
 import { MoneyComponent } from './details/money/money.component';
 import { FoodComponent } from './details/food/food.component';
+import { CreateBookComponent } from './dialogs/book/create-book/create-book.component';
+import { ConfirmFinishComponent } from './dialogs/book/confirm-finish/confirm-finish.component';
 
 @NgModule({
   declarations: [
@@ -23,13 +29,20 @@ import { FoodComponent } from './details/food/food.component';
     DetailsComponent,
     DefaultComponent,
     MoneyComponent,
-    FoodComponent
+    FoodComponent,
+    CreateBookComponent,
+    ConfirmFinishComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatIconModule
+    MatIconModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatDialogModule,
+    HttpClientModule,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

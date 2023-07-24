@@ -1,0 +1,31 @@
+<div class="container">
+    <h1 class="title d-flex justify-content-center align-items-center">Register a new book</h1>
+    
+    <form (ngSubmit)="submit()" [formGroup]="bookForm" #formDir="ngForm">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Name</span>
+            </div>
+            <input type="text" class="form-control" formControlName="name" id="name" required>
+            <div *ngIf="name.invalid && formDir.submitted" class="validation-error">
+                <p>The name is required.</p>
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Pages</span>
+            </div>
+            <input type="number" class="form-control" formControlName="pages" id="pages" required>
+            <div *ngIf="pages.invalid && formDir.submitted" class="validation-error">
+                <p>The amount of pages is required.</p>
+            </div>
+        </div>
+
+        <div class="submit d-flex justify-content-center align-items-center">
+            <button type="submit" class="btn btn-lg btn-outline-dark submit">
+                Submit
+            </button>
+        </div>
+
+    </form>
+</div>

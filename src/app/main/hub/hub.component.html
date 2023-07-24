@@ -4,14 +4,14 @@
 
     <div class="row">
 
-        <div class="itens col-md-4" 
+        <button class="itens btn btn-outline-dark col-md-4" 
         *ngFor="let it of itens" 
         (click)="openModuleDetails(it.name)">
 
             <mat-icon>{{it.icon}}</mat-icon>
             <p>{{it.name}}</p>
 
-        </div>
+        </button>
         
     </div>
 </div>

@@ -23,7 +23,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    border: 1px solid black;
     gap: 4px;
     cursor: pointer;
 
@@ -35,8 +34,4 @@
     mat-icon{
         transform: scale(1.5);
     }
-}
-
-.itens:hover{
-    border: 2px solid #ccc;
 }

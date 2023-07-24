@@ -1,0 +1,54 @@
+<div class="container">
+
+    <div class="row">
+        <div class="difficulty">
+            <div class="difficulty-title">
+                <h1>
+                    How difficult was this book for you?
+                </h1>
+            </div>
+            <div class="difficulty-choose d-flex justify-content-around">
+                <button class="btn btn-success" (click)="difficultyChoose('EASY')">EASY</button>
+                <button class="btn btn-primary" (click)="difficultyChoose('MEDIUM')">MEDIUM</button>
+                <button class="btn btn-danger" (click)="difficultyChoose('HARD')">HARD</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="rating">
+            <div class="rating-title">
+                <h1>
+                    What's your opinion about this book?
+                </h1>
+            </div>
+            <div class="rating-choose d-flex justify-content-around">
+                <mat-icon class="rating" (click)="ratingChoose('TERRIBLE')">sentiment_very_dissatisfied</mat-icon>
+                <mat-icon class="rating" (click)="ratingChoose('BAD')">mood_bad</mat-icon>
+                <mat-icon class="rating" (click)="ratingChoose('MEH')">sentiment_neutral</mat-icon>
+                <mat-icon class="rating" (click)="ratingChoose('COOL')">mood</mat-icon>
+                <mat-icon class="rating" (click)="ratingChoose('AWESOME')">sentiment_very_satisfied</mat-icon>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-floating">
+            <textarea class="form-control" [(ngModel)]="book.observation" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+            <label for="floatingTextarea2">Comments</label>
+          </div>
+    </div>
+
+    <div class="row">
+        <div class="confirm d-flex align-itens-center text-center flex-column">
+            <div class="text">
+                <h1 class="mb-0">Are you sure you want to finish this book?</h1>
+                <h5>This action is irreversible</h5>
+            </div>
+            <div class="buttons d-flex justify-content-evenly">
+                <button class="btn btn-outline-dark" (click)="close()">Cancel</button>
+                <button class="btn btn-outline-danger" (click)="submit()">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>
